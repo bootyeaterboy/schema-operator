@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - kafka.duss.me
+  resources:
+  - kafkaschemas
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - kafka.duss.me
+  resources:
+  - kafkaschemas/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - kafka.duss.me
+  resources:
+  - kafkaschemas/status
+  verbs:
+  - get
+  - patch
+  - update

@@ -1,0 +1,19 @@
+---
+apiVersion: kafka.duss.me/v1alpha1
+kind: KafkaSchema
+metadata:
+  labels:
+    app.kubernetes.io/name: kafkaschema
+    app.kubernetes.io/instance: kafkaschema-sample
+    app.kubernetes.io/part-of: builder
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: builder
+  name: kafkaschema-sample-value
+spec:
+  schema: |
+    syntax = "proto3";
+    package me.duss.protobuf;
+
+    message SampleRecord {
+      string myfield = 1;
+    }

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apicurio
+  namespace: apicurio
+  labels:
+    app: apicurio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apicurio
+  template:
+    metadata:
+      labels:
+        app: apicurio
+    spec:
+      containers:
+        - name: apicurio
+          image: apicurio/apicurio-registry-mem:latest-release
+          ports:
+            - containerPort: 8080
