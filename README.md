@@ -1,12 +1,12 @@
 # Schema Operator
-Strimzi provides a Kafka Cluster Operator, a Topic Operator, and a User Operator to manage Kafka resources within Kubernetes. Out of the box, however, there is no schema operator. This Kubernetes operator written in Go closes this gap.
+Strimzi provides a Kafka cluster operator, a topic operator, and a user operator to manage Kafka resources within Kubernetes. Out of the box, however, there is no schema operator. This Kubernetes operator written in Go closes this gap.
 
 ## Description
 The schema operator reconciles Kafka schemas in the form of custom resources (CRs) with the Apicurio schema registry. Schemas can be created, customized, or deleted as KafkaSchema CRs in the Kubernetes cluster. The operator is then responsible for creating, customizing, or deleting the corresponding schemas in the registry. This allows schemas to be created declaratively à la Infrastructure as Code.
 
 To do its job, the operator receives events from Kubernetes when something changes in the KafkaSchema CRs. An event consists exclusively of a CR name and a namespace. After that, it is up to the operator to figure out if the corresponding schema needs to be created, modified, or deleted in the registry. Or not.
 
-## Getting Started
+## Getting started
 You’ll need a Kubernetes cluster to run against. You can use [minikube](https://minikube.sigs.k8s.io/) or [KIND](https://sigs.k8s.io/kind) to get a local cluster for testing, or run against a remote cluster.
 **Note:** Your controller will automatically use the current context in your kubeconfig file (i.e. whatever cluster `kubectl cluster-info` shows).
 
@@ -49,7 +49,7 @@ This project aims to follow the Kubernetes [Operator pattern](https://kubernetes
 It uses [Controllers](https://kubernetes.io/docs/concepts/architecture/controller/),
 which provide a reconcile function responsible for synchronizing resources until the desired state is reached on the cluster.
 
-### Test It Out
+### Test it out
 1. Install the CRDs into the cluster:
 
 ```sh
